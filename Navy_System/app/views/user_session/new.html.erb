@@ -1,0 +1,81 @@
+<style>
+body 
+{
+	background: url('../images/bg222.png');
+	background-repeat:no-repeat;
+	background-size:100%;
+	display: compact;
+}
+</style>	
+
+<br>
+<div role="dialog" class="well"  style=" border-radius: 21px; width:280px; margin-top: 36px; margin-right: -13px;" >
+
+	<div>
+		<div class="modal-header">
+			<h3>قيادة القوات البحرية</h3>
+			<h4>فرع السكرتارية</h4>
+		</div>
+		<br>
+		<div class="modal-body">
+			<select style="width:250px;" tabindex="2">
+				<option value="0">--- المجموعة ---</option>
+				<option value="1">الحواسب</option>
+				<option value="2">قسم الصادر</option>
+				<option value="3">قسم الوارد</option>
+				<option value="4">قسم الاشارات</option>
+			</select>
+			<br>
+			<select style="width:250px;"  tabindex="2">
+				<option value="0">--- اسم المستخدم ---</option>
+				<option value="1">جندي/ياسين جمال محمد</option>
+				<option value="2">جندي/يحيي السقا</option>
+				<option value="3">جندي/هلال حامد هلال</option>
+			</select>
+			<br>				
+
+			<input placeholder="كلمة المرور" type="password" style="width:235px;"/>
+			<br>
+		</div>
+		<div class="modal-footer">
+			<button class="btn btn-primary">الدخـــــــول</button>
+		</div>
+
+	</div>
+</div>
+
+
+<script>
+$(document).ready(function() {
+
+	$('#datetimepicker1').datetimepicker({
+      language: 'ar-EG'
+    });
+
+
+    $('#datetimepicker2').datetimepicker({
+      language: 'ar-EG'
+    });
+
+
+
+    $("#Menus > li > a").tooltip();
+
+	$('.bs-docs-sidenav').affix();
+	$('li').click(function(){
+	//select tthe active element in the current list by $("#idOfTheList > .active")
+	$("#"+this.parentElement.getAttribute("id")+" > .active").removeClass("active")
+	this.setAttribute("class","active")
+	});
+
+	$(function () {
+		$('#Menus').tab('show');
+	})
+	$('.carousel').carousel({interval: 4000});
+
+
+});
+
+
+</script>
+</html>

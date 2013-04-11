@@ -1,0 +1,25 @@
+<!DOCTYPE HTML>
+<html dir="rtl">
+<head>
+  <title>سكرتارية قيادة القوات البحرية</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+	<header class="navbar navbar-fixed-top  navbar-inverse">
+		<div class="navbar-inner" >
+			<div class="container"  style = "text-align: center; margin-right:20px;font: normal .9em Tahoma, sans-serif; font-">
+				<h4 class="navbar-text">منظومة فرع سكرتارية قيادة القوات البحرية</h4> 
+			</div>
+		</div>
+	</header>	
+
+<div id="main" role="main" style = "margin-right:20px;font: normal .80em Tahoma, sans-serif;">
+<%= yield %>
+<div>
+
+<footer class="navber-inner">
+</footer>
+</body>
+</html>
