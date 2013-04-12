@@ -1,22 +1,36 @@
 NavySystem::Application.routes.draw do
-  resources :groups
+  get "qowa/tamam/agaza/index"
 
-  resources :users
+  get "qowa/tamam/agaza/edit"
 
-  resources :user_session
+  get "qowa/tamam/agaza/delete"
+
+  get "qowa/tamam/agaza/create"
+
+
+	get "qowa/tamam/create"
+
+	get "qowa/tamam/edit"
+
+	get "qowa/tamam/report"
+
+	resources :groups
+
+	resources :users
+
+	resources :user_session
+
+	namespace :qowa do
+		resources :tamam
+	end
 
 
     # match 'login' => 'user_session#login', :as => :login
-	# match 'login' => 'user_session#login', :as => :login
-  	match 'logout' => 'user_session#logout', :as => :logout
-	match 'form' => 'user_session#sample_form', :as => :form
-	match 'edit' => 'user_session#sample_edit_form', :as => :edit
-	match 'report' => 'user_session#sample_report_form', :as => :report
-	match 'agaza' => 'user_session#agaza_types', :as => :agaza
+    match 'login' => 'user_session#login', :as => :login
+    match 'logout' => 'user_session#logout', :as => :logout
+   
+    root :to =>'user_session#login'
 
-
-	root :to =>'user_session#login'
-
-	match ':controller(/:action(/:id))(.:format)'
+    match ':controller(/:action(/:id))(.:format)'
 
 end
