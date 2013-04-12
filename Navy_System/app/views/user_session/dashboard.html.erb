@@ -1,0 +1,99 @@
+
+<ul class="nav nav-tabs" id="Menus" style = "margin-right:20px ;font: bold 1.20em Tahoma; sans-serif;">
+	<li class="active">
+		<a href="#" data-toggle="tooltip" data-placement="bottom" title="تطبيق القوة وتمام الأفراد" >القـــوة</a>
+	</li>
+	<li><a href="#" data-toggle="tooltip" data-placement="bottom" title="تطبيق تأمين الدخول علي منظومة ق.ق.ب و مراقبة سير العمل للمستخدمين">المستخدمين</a></li>
+	<li><a href="#" data-toggle="tooltip" data-placement="bottom" title="قاعدة إدخال البيانات">إدخال البيانات</a></li>
+	<li><a href="#" data-toggle="tooltip" data-placement="bottom" title=" تطبيق بنك المعلومات">بنك المعلومات</a></li>
+	<li><a href="#" data-toggle="tooltip" data-placement="bottom" title="تطبيق أجازات القادة">اجازات القادة</a></li>
+	<li><a href="#" data-toggle="tooltip" data-placement="bottom" title="تطبيق الحافظة الآلية و متابعة التأشيرات و الإلتزمات الرئيسية للسيد قائد القوات البحرية/السيد رئيس الأركان">الحافظة</a></li>
+	<li><a href="#" data-toggle="tooltip" data-placement="bottom" title="تطبيق المكافآت و الحوافز">المكافآت و الحوافز</a></li>
+	<li><a href="#" data-toggle="tooltip" data-placement="bottom" title="تطبيق متابعة عضويات دور القوات البحرية" >عضويات</a></li>
+	<li><a href="#" data-toggle="tooltip" data-placement="bottom" title="تطبيق الأرشيف الإلكتروني لقيادة القوات البحرية" >الأرشيف</a></li>
+	<li><a href="#" data-toggle="tooltip" data-placement="bottom" title="تطبيق التصوير بالكمبيوتر" >التصوير</a></li>
+	<li><a href="#" data-toggle="tooltip" data-placement="bottom" title="تطبيق المتابعة الآلية لوحدات القوات البحرية" >المتابعة</a></li>
+	<li><a href="#" data-toggle="tooltip" data-placement="bottom" title="تطبيقات دعم و إتخاذ القرار الإداري" >دعم وإتخاذ القرار</a></li>
+	<li><a href="#" data-toggle="tooltip" data-placement="bottom" title="شاشات سير العمل اليومي" >سير العمل</a></li>
+</ul>
+
+
+<div style="float:right;">
+	<ul  style="font: normal 15px Tahoma; margin-top: 30px; margin-right: 25px;" id="sideMenus" class="nav nav-list bs-docs-sidenav affix" >
+		<li class="active"><a href="#">تسجيل أنواع الأجازات<i class="icon-chevron-left"></i></a></li>
+		<li><a href="#">بيانات طاقم فرع السكرتارية<i class="icon-chevron-left"></i></a></li>
+		<li><a href="#">تسجيل التمام اليومي<i class="icon-chevron-left"></i></a></li>
+		<li><a href="#">بيان بالخوارج عن اليوم<i class="icon-chevron-left"></i></a></li>
+		<li><a href="#">بيان بالأجازات المتبقية<i class="icon-chevron-left"></i></a></li>
+		<li><a href="#">بيانات ضباط صف طاقم السكرتارية<i class="icon-chevron-left"></i></a></li>
+		<li><a href="#">بيانات جنود طاقم السكرتارية<i class="icon-chevron-left"></i></a></li>
+		<li><a href="#">بيانات ضباط طاقم السكرتارية<i class="icon-chevron-left"></i></a></li>
+
+	</ul>
+</div>
+<div id="myCarousel" class="carousel slide" style="width: 60%; height: 60%; float:left; margin-top: 30px;
+margin-left: 130px;">
+<ol class="carousel-indicators">
+	<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+	<li data-target="#myCarousel" data-slide-to="1"></li>
+	<li data-target="#myCarousel" data-slide-to="2"></li>
+	<li data-target="#myCarousel" data-slide-to="3"></li>
+</ol>
+<!-- Carousel items -->
+<div class="carousel-inner">
+	<div class="active item">
+		<img src="../images/bg2.jpg" alt="Smiley face" >
+		<div class="carousel-caption">
+			<h4>قيادة القوات البحرية </h4>
+			<p>منظومة فرع سكرتارية قيادة القوات البحرية</p>
+		</div>
+	</div>
+	<div class="item">
+		<img src="../images/car1.jpg" alt="Smiley face" >
+		<div class="carousel-caption">
+			<h4>قيادة القوات البحرية </h4>
+			<p>منظومة فرع سكرتارية قيادة القوات البحرية</p>
+		</div>
+	</div>
+	<div class="item">
+		<img src="../images/car2.jpg" alt="Smiley face" >
+		<div class="carousel-caption">
+			<h4>قيادة القوات البحرية </h4>
+			<p>منظومة فرع سكرتارية قيادة القوات البحرية</p>
+		</div>
+	</div>
+	<div class="item">
+		<img src="../images/bg3.jpg" alt="Smiley face" >
+		<div class="carousel-caption">
+			<h4>قيادة القوات البحرية </h4>
+			<p>منظومة فرع سكرتارية قيادة القوات البحرية</p>
+		</div>
+	</div>
+</div>
+<!-- Carousel nav -->
+<a class="carousel-control left" href="#myCarousel" data-slide="next">&rsaquo;</a>
+<a class="carousel-control right" href="#myCarousel" data-slide="prev">&lsaquo;</a>
+
+
+<script>
+$(document).ready(function() {
+
+	$("#Menus > li > a").tooltip();
+
+	$('li').click(function(){
+//select tthe active element in the current list by $("#idOfTheList > .active")
+$("#"+this.parentElement.getAttribute("id")+" > .active").removeClass("active")
+this.setAttribute("class","active")
+});
+
+	$(function () {
+		$('#Menus').tab('show');
+	})
+	$('.carousel').carousel({interval: 4000});
+
+
+});
+
+
+</script>
+
