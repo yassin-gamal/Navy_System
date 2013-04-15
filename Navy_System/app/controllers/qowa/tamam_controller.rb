@@ -1,5 +1,6 @@
 class Qowa::TamamController < ApplicationController
-	
+	def index
+	end
 	def create
 	end
 

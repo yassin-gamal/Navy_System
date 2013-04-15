@@ -1,4 +1,7 @@
 class Qowa::Tamam::AgazaController < ApplicationController
+  def index
+  end
+  
   def create
   end
 
@@ -8,6 +11,4 @@ class Qowa::Tamam::AgazaController < ApplicationController
   def delete
   end
 
-  def index
-  end
 end
