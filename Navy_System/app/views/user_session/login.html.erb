@@ -16,63 +16,132 @@ body
 			<h3>قيادة القوات البحرية</h3>
 			<h4>فرع السكرتارية</h4>
 		</div>
-		
 		<br>
 		<div class="modal-body">
-			<select style="width:250px;" tabindex="2">
-				<option value="0">--- المجموعة ---</option>
-				<option value="1">الحواسب</option>
-				<option value="2">قسم الصادر</option>
-				<option value="3">قسم الوارد</option>
-				<option value="4">قسم الاشارات</option>
-			</select>
+			<%= form_tag :action=>:login do %>
+			<%= select_tag "group", options_from_collection_for_select(@groups, "id", "name"), :prompt => '-- اختر مجموعة --',:style=>"width:250px;" ,:tabindex=>"2","data-remote" => true, "data-url" => "/get_users", "data-type" => :json %> 
 			<br>
-			<select style="width:250px;"  tabindex="2">
-				<option value="0">--- اسم المستخدم ---</option>
-				<option value="1">جندي/ياسين جمال محمد</option>
-				<option value="2">جندي/يحيي السقا</option>
-				<option value="3">جندي/هلال حامد هلال</option>
-			</select>
-			<br>				
-
-			<input placeholder="كلمة المرور" type="password" style="width:235px;"/>
+			<div id="username_container">
+				<%= select_tag "username", options_from_collection_for_select(@users, "id", "name"), :prompt => '-- اختر مستخدم --',:style=>"width:250px;" ,:tabindex=>"2" %> 
+			</div>
 			<br>
-		</div>
-		<div class="modal-footer">
-			<button class="btn btn-primary">الدخـــــــول</button>
-		</div>
+			<%= password_field_tag 'password', "",:placeholder=>"كلمة المرور", :style=>"width:235px;" %>
 
+			<br>
+			<div class="modal-footer">
+				<%= submit_tag "الدخـــــــول",:class=>"btn btn-primary" %>
+			</div>
+			<div>
+				<% flash.each do |name, msg| %>
+				<% if msg.is_a?(String) %>
+				<div class="alert alert-<%= name == :notice ? "success" : "error" %>">
+					البيانات المدخلة خاطئة
+				</div>
+				<% end %>
+				<% end %>
+			</div> 
+			<%end%>
+		</div>
 	</div>
 </div>
+</div>
 
+<script>
+
+$('#groups_select').change(function(){
+	alert(this.value);
+});
+
+</script>
 
 <script>
 $(document).ready(function() {
 
 	$('#datetimepicker1').datetimepicker({
-      language: 'ar-EG'
-    });
+		language: 'ar-EG'
+	});
 
 
-    $('#datetimepicker2').datetimepicker({
-      language: 'ar-EG'
-    });
+	$('#datetimepicker2').datetimepicker({
+		language: 'ar-EG'
+	});
 
 
 
-    $("#Menus > li > a").tooltip();
+	$("#Menus > li > a").tooltip();
 
 	$('li').click(function(){
 	//select tthe active element in the current list by $("#idOfTheList > .active")
-	$("#"+this.parentElement.getAttribute("id")+" > .active").removeClass("active")
-	this.setAttribute("class","active")
-	});
+	$("#"+this.parentElement.getAttribute("id")+" > .active").removeClass("active");
+	this.setAttribute("class","active");
+});
 
 	$(function () {
 		$('#Menus').tab('show');
 	})
+
 	$('.carousel').carousel({interval: 4000});
 
+	$("#group").bind('ajax:success', function(evt, data, status, xhr){
+      var select = $('#username');
+
+      if (data !== null) {
+        select.removeAttr('disabled');
+        select.empty();
+        $.each(data, function(key, value) {
+          $("<option/>").val(value["id"]).text(value["name"]).appendTo(select);
+        });
+      } else {
+        select.empty();
+        select.attr('disabled', 'disabled');
+      }
+    });
+
+
+
+
+	// $("#group").change(function(){
+	// 	$.ajax({
+	// 		url: "get_users_user_session_path",
+	// 		type: "post",
+	// 		data: 1,
+	// 		success: function(){
+	// 			alert("success");
+
+	// 		},
+	// 		error:function(){
+	// 			alert("failure");
+
+	// 		}   
+	// 	});
+	// });
+// $("#group").on('change', function(evt, data, status, xhr){
+// 	$.ajax({
+// 		url: "/get_users?id="+$('#group :selected').val(),
+// 		type: "get",
+// 		data: 3,
+// 		success: function(){
+// 			alert("success");
+// 			// var select = $('#username');
+// 			// if (data !== null) {
+// 			// 	select.removeAttr('disabled');
+// 			// 	$.each(data, function(key, value) {
+// 			// 		alert("good");
+// 			// 		$("<option/>").val(value[1]).text(value[0]).appendTo(select);
+// 			// 	});
+// 			// } else {
+// 			// 	select.empty();
+// 			// 	select.attr('disabled', 'disabled');
+// 			// }
+
+// 		},
+// 		error:function(){
+// 			alert("failure");
+
+// 		}   
+// 	});
+
+// });
 
 });
 

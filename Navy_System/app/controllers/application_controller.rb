@@ -3,6 +3,6 @@ class ApplicationController < ActionController::Base
   before_filter :require_login
 
   def require_login
-  	# redirect_to "/login" unless session[:current_user]
+  	redirect_to "/login" unless session[:current_user]
   end
 end

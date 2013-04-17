@@ -13,9 +13,9 @@
 
 <% @groups.each do |group| %>
   <tr>
-    <td><%= group.goup_id %></td>
+    <td><%= group.id %></td>
     <td><%= group.name %></td>
-    <td><%= group.notes %></td>
+    <td><%= group.note %></td>
     <td><%= group.open_all %></td>
     <td><%= link_to 'Show', group %></td>
     <td><%= link_to 'Edit', edit_group_path(group) %></td>

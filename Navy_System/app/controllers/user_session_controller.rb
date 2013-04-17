@@ -1,22 +1,34 @@
 # app/controllers/user_sessions_controller.rb
 class UserSessionController < ApplicationController
+	 respond_to :html, :json
 
 	skip_before_filter :require_login, :only => :login
 
 	def login
 		if request.get?
-			@user = User.new
+			@groups = Group.all
+			@users = []
+			
 		else
 			respond_to do |format|
 				@user = User.find_by_name_and_password(params[:username],params[:password])
+				p "==================================================================="
+				p params[:username] +" , "+ params[:password]
 			  	if @user
 					session[:current_user] = @user
-			    	format.html { redirect_to :apps, :notice => 'Login successful.' }
+			    	format.html { redirect_to "/dashboard", :notice => 'Login successful.' }
 			  	else
-			    	format.html { flash.now[:alert] = "Login failed."; render :action => "login" }
+			  		@groups = Group.all
+					@users = User.all
+			    	format.html { flash.now[:alert] = ""; render :action => "login" }
 	 		  	end
 			end
 		end
+	end
+
+	def get_users
+		@users = Group.find(params[:group]).users.collect {|u| {:id => u.id, :name => u.name} }
+		respond_with @users
 	end
 
 	def logout

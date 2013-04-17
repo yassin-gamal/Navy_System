@@ -12,8 +12,8 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :user_id %><br />
-    <%= f.number_field :user_id %>
+    <%= f.label :id %><br />
+    <%= f.number_field :id %>
   </div>
   <div class="field">
     <%= f.label :password %><br />
@@ -22,6 +22,10 @@
   <div class="field">
     <%= f.label :name %><br />
     <%= f.text_field :name %>
+  </div>
+  <div class="group">
+    <%= f.label :group %><br />
+    <%= f.number_field :group %>
   </div>
   <div class="actions">
     <%= f.submit %>
