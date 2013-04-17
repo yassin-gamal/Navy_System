@@ -11,9 +11,11 @@ class UserSessionController < ApplicationController
 			
 		else
 			respond_to do |format|
-				@user = User.find_by_name_and_password(params[:username],params[:password])
-				p "==================================================================="
+				@user = User.find_by_id_and_password(params[:username],params[:password])
+				p "=====================================login successful=============================="
 				p params[:username] +" , "+ params[:password]
+				p "hello !!!," 
+
 			  	if @user
 					session[:current_user] = @user
 			    	format.html { redirect_to "/dashboard", :notice => 'Login successful.' }
