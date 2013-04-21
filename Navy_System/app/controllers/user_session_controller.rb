@@ -2,20 +2,22 @@
 class UserSessionController < ApplicationController
 	 respond_to :html, :json
 
-	skip_before_filter :require_login, :only => :login
+	skip_before_filter :require_login, :only => [:login, :get_users]
 
 	def login
 		if request.get?
+			if session[:current_user]
+				redirect_to "/dashboard"
+			end
 			@groups = Group.all
 			@users = []
 			
 		else
 			respond_to do |format|
 				@user = User.find_by_id_and_password(params[:username],params[:password])
-				p "=====================================login successful=============================="
-				p params[:username] +" , "+ params[:password]
-				p "hello !!!," 
-
+				# p "=====================================login successful=============================="
+				# p params[:username] +" , "+ params[:password]
+				# p "hello !!!," 
 			  	if @user
 					session[:current_user] = @user
 			    	format.html { redirect_to "/dashboard", :notice => 'Login successful.' }
