@@ -1,4 +1,4 @@
-<%= form_for(@user) do |f| %>
+<%= form_for(@user, :html=>{:style=>"margin-right:400px;margin-top:50px; width:400px;", :class=>"well" } ) do |f| %>
   <% if @user.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
@@ -11,23 +11,53 @@
     </div>
   <% end %>
 
+	<div class="field">
+    	<%= f.label "اسم المستخدم" %>
+    	<%= f.text_field :name, :class=>"user_form_field" %>
+  	</div>
+  	
+  	  <div class="field">
+    	<%= f.label "الرقم العسكرى" %>
+    	<%= f.text_field :military_number, :class=>"user_form_field" %>
+  	</div>
+  
   <div class="field">
-    <%= f.label :id %><br />
-    <%= f.number_field :id %>
+    <%= f.label "كلمة المرور" %>
+    <%= f.text_field :password, :class=>"user_form_field" %>
   </div>
+  
   <div class="field">
-    <%= f.label :password %><br />
-    <%= f.text_field :password %>
+    <%= f.label "تأكيد كلمة المرور" %>
+    <%= f.text_field :password_confirmation, :class=>"user_form_field" %>
   </div>
+
+	<div class="field">
+	<%= f.label "رقم التلفون" %>
+	<%= f.text_field :phone, :class=>"user_form_field" %>
+  </div>
+  
+<div class="field">
+	<%= f.label "ملاحظات" %>
+	<%= f.text_field :note, :class=>"user_form_field" %>
+  </div>
+	
+	
+	
+
+  
+  
+  
+	
   <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
+    <%= f.label "المجموعة" %>
+	<%= f.select :group_id, options_from_collection_for_select(@groups, "id", "name"), :class=>"user_form_field", :prompt => '-- اختر مجموعة --',  %> 
   </div>
-  <div class="group">
-    <%= f.label :group %><br />
-    <%= f.number_field :group %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
+  
+	 
+  
+  <div class="modal-footer" >
+  <center>
+    <%= f.submit "تسجيل المستخدم",:class=>"btn-large btn-primary" %>
+  </center>
   </div>
 <% end %>

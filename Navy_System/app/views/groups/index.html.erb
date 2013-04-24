@@ -1,29 +1,106 @@
-<h1>Listing groups</h1>
 
-<table>
-  <tr>
-    <th>الكود</th>
-    <th>اسم المجموعة</th>
-    <th>ملاحظات</th>
-    <th>فتح جميع التطبيقات</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+<ul class="nav nav-tabs" id="Menus" style = "margin-right:20px ;font: bold 1.20em Tahoma; sans-serif;">
+	<li >
+		<a href="#" data-toggle="tooltip" data-placement="bottom" title="تطبيق القوة وتمام الأفراد" >القـــوة</a>
+	</li>
+	<li class="active" >
+		<a href="#" data-toggle="tooltip" data-placement="bottom" title="تطبيق تأمين الدخول علي منظومة ق.ق.ب و مراقبة سير العمل للمستخدمين">المستخدمين</a>
+	</li>
+	<li>
+		<a href="#" data-toggle="tooltip" data-placement="bottom" title="قاعدة إدخال البيانات">إدخال البيانات</a>
+	</li>
+	<li>
+		<a href="#" data-toggle="tooltip" data-placement="bottom" title=" تطبيق بنك المعلومات">بنك المعلومات</a>
+	</li>
+	<li>
+		<a href="#" data-toggle="tooltip" data-placement="bottom" title="تطبيق أجازات القادة">اجازات القادة</a>
+	</li>
+	<li>
+		<a href="#" data-toggle="tooltip" data-placement="bottom" title="تطبيق الحافظة الآلية و متابعة التأشيرات و الإلتزمات الرئيسية للسيد قائد القوات البحرية/السيد رئيس الأركان">الحافظة</a>
+	</li>
+	<li>
+		<a href="#" data-toggle="tooltip" data-placement="bottom" title="تطبيق المكافآت و الحوافز">المكافآت و الحوافز</a>
+	</li>
+	<li>
+		<a href="#" data-toggle="tooltip" data-placement="bottom" title="تطبيق متابعة عضويات دور القوات البحرية" >عضويات</a>
+	</li>
+	<li>
+		<a href="#" data-toggle="tooltip" data-placement="bottom" title="تطبيق الأرشيف الإلكتروني لقيادة القوات البحرية" >الأرشيف</a>
+	</li>
+	<li>
+		<a href="#" data-toggle="tooltip" data-placement="bottom" title="تطبيق التصوير بالكمبيوتر" >التصوير</a>
+	</li>
+	<li>
+		<a href="#" data-toggle="tooltip" data-placement="bottom" title="تطبيق المتابعة الآلية لوحدات القوات البحرية" >المتابعة</a>
+	</li>
+	<li>
+		<a href="#" data-toggle="tooltip" data-placement="bottom" title="تطبيقات دعم و إتخاذ القرار الإداري" >دعم وإتخاذ القرار</a>
+	</li>
+	<li>
+		<a href="#" data-toggle="tooltip" data-placement="bottom" title="شاشات سير العمل اليومي" >سير العمل</a>
+	</li>
+</ul>
 
-<% @groups.each do |group| %>
-  <tr>
-    <td><%= group.id %></td>
-    <td><%= group.name %></td>
-    <td><%= group.note %></td>
-    <td><%= group.open_all %></td>
-    <td><%= link_to 'Show', group %></td>
-    <td><%= link_to 'Edit', edit_group_path(group) %></td>
-    <td><%= link_to 'Destroy', group, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
-<% end %>
+<div style="float:right;">
+	<ul  style="font: normal 15px Tahoma; margin-top: 30px; margin-right: 25px;" id="sideMenus" class="nav nav-list bs-docs-sidenav affix" >
+		<li >
+			<a href=<%=new_group_path%> >تسجيل مجموعات المستخدمين<i class="icon-chevron-left"></i></a>
+		</li>
+		
+		<li class="active">
+			<a href=<%=groups_path%>>بيان بالمجموعات<i class="icon-chevron-left"></i></a>
+		</li>
+		
+		<li>
+			<a href="#">خصائص مجموعات المستخدمين<i class="icon-chevron-left"></i></a>
+		</li>
+		
+		<li>
+			<a href=<%=new_user_path%>>تسجيل المستخدمين<i class="icon-chevron-left"></i></a>
+		</li>
+		
+		<li>
+			<a href=<%=users_path%>>بيان بالمستخدمين<i class="icon-chevron-left"></i></a>
+		</li>
+		
+		<li>
+			<a href="#">خصائص المستخدمين<i class="icon-chevron-left"></i></a>
+		</li>
+		
+	</ul>
+</div>
+
+<table style="width: 60%; height: 60%; float:left; margin-top: 30px;
+margin-left: 130px;" class="table table-bordered">
+	<tr>
+		<th><center>اسم المجموعة</center></th>
+		<th><center>الكود</center></th>
+		<th><center>عدد اﻷفراد</center></th>
+		<th><center>ملاحظات</center></th>
+		<th><center>فتح جميع التطبيقات</center></th>
+		<th colspan='2'></th>
+	</tr>
+
+	<% @groups.each do |group| %>
+	<tr>
+		<td><center><%= group.name %></center></td>
+		<td><center><%= group.id %></center></td>
+		<td><center><%= group.users.count %></center></td>
+		<td><center><%= "#{group.note}" %></center></td>
+		<td><center>
+		 <%if group.open_all%>
+		 	نعم
+		 <%else%>
+		 ---
+		 <%end%>
+		 </center></td>
+		
+		<td><center><button class="btn btn-success"><%= link_to 'تعديل', edit_group_path(group) %></button></center></td>
+		<td><center><button class="btn btn-danger"><%= link_to 'حذف', group, method: :delete, data: { confirm: 'حذف المجموعة ؟' } %></center></button></td>
+	</tr>
+	<% end %>
 </table>
 
-<br />
 
-<%= link_to 'New Group', new_group_path %>
+
+</div>

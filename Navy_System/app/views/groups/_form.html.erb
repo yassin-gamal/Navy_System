@@ -1,4 +1,4 @@
-<%= form_for(@group) do |f| %>
+<%= form_for(@group, :html=>{:style=>"margin-right:400px;margin-top:50px; width:400px;", :class=>"well" }) do |f| %>
   <% if @group.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@group.errors.count, "error") %> prohibited this group from being saved:</h2>
@@ -12,22 +12,23 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :id %><br />
-    <%= f.number_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :name %><br />
+    <%= f.label "اسم المجموعة" %>
     <%= f.text_field :name %>
   </div>
-  <div class="field">
-    <%= f.label :note %><br />
-    <%= f.text_area :note %>
+  
+  <div class="field" >
+    <%= f.label "ملاحظات" %>
+    <%= f.text_field :note %>
   </div>
+  
   <div class="field">
-    <%= f.label :open_all %><br />
+    <%= f.label "فتح جميع التطبيقات" %>
     <%= f.check_box :open_all %>
   </div>
-  <div class="actions">
-    <%= f.submit %>
+  
+  <div class="modal-footer">
+  	<center>
+    <%= f.submit "تسجيل المجموعة", :class=>"btn-large btn-primary"  %>
+    </center>
   </div>
 <% end %>
