@@ -1,4 +1,3 @@
-
 <ul class="nav nav-tabs" id="Menus" style = "margin-right:20px ;font: bold 1.20em Tahoma; sans-serif;">
 	<li >
 		<a href="#" data-toggle="tooltip" data-placement="bottom" title="تطبيق القوة وتمام الأفراد" >القـــوة</a>
@@ -43,12 +42,12 @@
 
 <div style="float:right;">
 	<ul  style="font: normal 15px Tahoma; margin-top: 30px; margin-right: 25px;" id="sideMenus" class="nav nav-list bs-docs-sidenav affix" >
-		<li >
-			<a href=<%=new_group_path%> >تسجيل مجموعات المستخدمين<i class="icon-chevron-left"></i></a>
+		<li class="active">
+			<a href=<%=new_mostkhdmeen_group_path%> >تسجيل مجموعات المستخدمين<i class="icon-chevron-left"></i></a>
 		</li>
 		
-		<li class="active">
-			<a href=<%=groups_path%>>بيان بالمجموعات<i class="icon-chevron-left"></i></a>
+		<li >
+			<a href=<%=mostkhdmeen_groups_path%>>بيان بالمجموعات<i class="icon-chevron-left"></i></a>
 		</li>
 		
 		<li>
@@ -56,51 +55,20 @@
 		</li>
 		
 		<li>
-			<a href=<%=new_user_path%>>تسجيل المستخدمين<i class="icon-chevron-left"></i></a>
+			<a href=<%=new_mostkhdmeen_user_path%>>تسجيل المستخدمين<i class="icon-chevron-left"></i></a>
 		</li>
 		
 		<li>
-			<a href=<%=users_path%>>بيان بالمستخدمين<i class="icon-chevron-left"></i></a>
+			<a href=<%=mostkhdmeen_users_path%>>بيان بالمستخدمين<i class="icon-chevron-left"></i></a>
 		</li>
 		
 		<li>
 			<a href="#">خصائص المستخدمين<i class="icon-chevron-left"></i></a>
 		</li>
-		
 	</ul>
 </div>
 
-<table style="width: 60%; height: 60%; float:left; margin-top: 30px;
-margin-left: 130px;" class="table table-bordered">
-	<tr>
-		<th><center>اسم المجموعة</center></th>
-		<th><center>الكود</center></th>
-		<th><center>عدد اﻷفراد</center></th>
-		<th><center>ملاحظات</center></th>
-		<th><center>فتح جميع التطبيقات</center></th>
-		<th colspan='2'></th>
-	</tr>
-
-	<% @groups.each do |group| %>
-	<tr>
-		<td><center><%= group.name %></center></td>
-		<td><center><%= group.id %></center></td>
-		<td><center><%= group.users.count %></center></td>
-		<td><center><%= "#{group.note}" %></center></td>
-		<td><center>
-		 <%if group.open_all%>
-		 	نعم
-		 <%else%>
-		 ---
-		 <%end%>
-		 </center></td>
-		
-		<td><center><button class="btn btn-success"><%= link_to 'تعديل', edit_group_path(group) %></button></center></td>
-		<td><center><button class="btn btn-danger"><%= link_to 'حذف', group, method: :delete, data: { confirm: 'حذف المجموعة ؟' } %></center></button></td>
-	</tr>
-	<% end %>
-</table>
 
 
+<%= render 'form' %>
 
-</div>

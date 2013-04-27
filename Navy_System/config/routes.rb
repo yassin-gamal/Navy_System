@@ -3,6 +3,7 @@ NavySystem::Application.routes.draw do
 
   namespace :mostkhdmeen do
     resources :users
+    resources :groups
   end
 
 
@@ -26,7 +27,6 @@ NavySystem::Application.routes.draw do
   match 'logout' => 'user_session#logout', :as => :logout
   match 'get_users' => 'user_session#get_users', :as => :get_users
 
-	resources :groups
 
   
   
