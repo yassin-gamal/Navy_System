@@ -22,11 +22,14 @@ NavySystem::Application.routes.draw do
 	get "qowa/tamam/report"
 
 	# get "user_session/get_users"
+	match 'login' => 'user_session#login', :as => :login
+  match 'logout' => 'user_session#logout', :as => :logout
+  match 'get_users' => 'user_session#get_users', :as => :get_users
 
 	resources :groups
 
   
-  	
+  
 
 	resources :user_session
 
