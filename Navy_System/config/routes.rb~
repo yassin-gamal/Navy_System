@@ -1,10 +1,11 @@
 NavySystem::Application.routes.draw do
+  get "mostkhdmeen/users/index"
 
+  get "mostkhdmeen/users/create"
 
-  namespace :mostkhdmeen do
-    resources :users
-  end
+  get "mostkhdmeen/users/delete"
 
+  get "mostkhdmeen/users/edit"
 
 	get "qowa/tamam/agaza/index"
 
@@ -25,7 +26,9 @@ NavySystem::Application.routes.draw do
 
 	resources :groups
 
-  
+  namespace :mostkhdmeen do 
+    resources :users
+  end
   	
 
 	resources :user_session

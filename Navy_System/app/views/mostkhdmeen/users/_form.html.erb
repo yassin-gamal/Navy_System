@@ -1,10 +1,10 @@
-<%= form_for(@user, :html=>{:style=>"margin-right:400px;margin-top:50px; width:400px;", :class=>"well" } ) do |f| %>
-  <% if @user.errors.any? %>
+<%= form_for([:mostkhdmeen,@mostkhdmeen_user], :html=>{:style=>"margin-right:400px;margin-top:50px; width:400px;", :class=>"well" }) do |f| %>
+  <% if @mostkhdmeen_user.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+      <h2><%= pluralize(@mostkhdmeen_user.errors.count, "error") %> prohibited this user from being saved:</h2>
 
       <ul>
-      <% @user.errors.full_messages.each do |msg| %>
+      <% @mostkhdmeen_user.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
       <% end %>
       </ul>
@@ -26,10 +26,7 @@
     <%= f.password_field :password, :class=>"user_form_field" %>
   </div>
   
-  <div class="field">
-    <%= f.label "تأكيد كلمة المرور" %>
-    <%= f.password_field :password_confirmation, :class=>"user_form_field" %>
-  </div>
+
 
 	<div class="field">
 	<%= f.label "رقم التلفون" %>
