@@ -24,7 +24,7 @@ class UserSessionController < ApplicationController
 			  	else
 			  		@groups = Group.all
 					@users = User.all
-			    	format.html { flash.now[:alert] = ""; render :action => "login" }
+			    	format.html { flash[:alert] = "error"; render :action => "login" }
 	 		  	end
 			end
 		end

@@ -10,8 +10,12 @@
 	<header class="navbar navbar-fixed-top  navbar-inverse">
 		<div class="navbar-inner" >
 			<div class="container"  style = "text-align: center; margin-right:20px;font: normal .9em Tahoma, sans-serif; font-">
-				<h4 class="navbar-text">منظومة فرع سكرتارية قيادة القوات البحرية</h4> 
+				<span> <h4 class="navbar-text">منظومة فرع سكرتارية قيادة القوات البحرية</h4></span> 
+				
 			</div>
+			<% if session[:current_user]%>
+				<span> <%= link_to 'تسجيل الخروج', "\logout", :style=>"float: left;margin-top: -31px;margin-left: 15px;" %> </span>
+			<%end%>
 		</div>
 	</header>	
 
