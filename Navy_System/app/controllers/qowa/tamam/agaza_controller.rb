@@ -1,8 +1,9 @@
 class Qowa::Tamam::AgazaController < ApplicationController
   def index
+    @agazat = Agaza.all
   end
   
-  def create
+  def new
   end
 
   def edit

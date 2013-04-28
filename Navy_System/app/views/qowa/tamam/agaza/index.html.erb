@@ -32,50 +32,15 @@
  			
  		</tr>
  		
-		<tr >
- 			<td><h5><center>1</center></h5></td>
- 			<td><h5><center>سنوية</center></h5></td>
- 			<td><h5><center><button class="btn btn-info"><i class=" icon-pencil  icon-white"></i>تـــعديـــل</button></center></h5></td>
-			<td><h5><center><button class="btn btn-danger"><i class=" icon-trash  icon-white"></i>حـــذف</button></center></h5></td>
-
- 		</tr>
-
-
- 		<tr >
- 			<td><h5><center>2</center></h5></td>
- 			<td><h5><center>عارضة</center></h5></td>
+ 		<% @agazat.each do |agaza|%>
+ 			<tr >
+ 			<td><h5><center><%=agaza.id%></center></h5></td>
+ 			<td><h5><center><%=agaza.type%></center></h5></td>
  			<td><h5><center><button class="btn btn-info"><i class=" icon-pencil  icon-white"></i>تـــعديـــل</button></center></h5></td>
 			<td><h5><center><button class="btn btn-danger"><i class=" icon-trash  icon-white"></i>حـــذف</button></center></h5></td>
  		</tr>
-
-
-
- 		<tr >
- 			<td><h5><center>3</center></h5></td>
- 			<td><h5><center>راحة</center></h5></td>
- 			<td><h5><center><button class="btn btn-info"><i class=" icon-pencil  icon-white"></i>تـــعديـــل</button></center></h5></td>
-			<td><h5><center><button class="btn btn-danger"><i class=" icon-trash  icon-white"></i>حـــذف</button></center></h5></td>
- 		</tr>
-
-
-
- 		<tr >
- 			<td><h5><center>4</center></h5></td>
- 			<td><h5><center>مأمورية</center></h5></td>
- 			<td><h5><center><button class="btn btn-info"><i class=" icon-pencil  icon-white"></i>تـــعديـــل</button></center></h5></td>
-			<td><h5><center><button class="btn btn-danger"><i class=" icon-trash  icon-white"></i>حـــذف</button></center></h5></td>
- 		</tr>
-
-
- 		<tr >
- 			<td><h5><center>5</center></h5></td>
- 			<td><h5><center>مرضية</center></h5></td>
- 			<td><h5><center><button class="btn btn-info"><i class=" icon-pencil  icon-white"></i>تـــعديـــل</button></center></h5></td>
-			<td><h5><center><button class="btn btn-danger"><i class=" icon-trash  icon-white"></i>حـــذف</button></center></h5></td>
- 		</tr>
-
-
- 		<tr >
+ 		<%end%>
+		 <tr >
  			<td><h5><center>6</center></h5></td>
  			<td><h5><center>منحة</center></h5></td>
  			<td><h5><center><button class="btn btn-info"><i class=" icon-pencil  icon-white"></i>تـــعديـــل</button></center></h5></td>
