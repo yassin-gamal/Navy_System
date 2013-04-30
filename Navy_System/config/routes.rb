@@ -1,15 +1,18 @@
 NavySystem::Application.routes.draw do
 
-  resources :user_session
+  get "qowa/tamam/create"
+  get "qowa/tamam/edit"
+  get "qowa/tamam/report"
+  
+  namespace :qowa do
+    resources :vacations
+    resources :vacation_types
+  end
 
-  namespace :qowa do
-    namespace :tamam do
-      resources :agaza
-    end
-  end
-  namespace :qowa do
-    resources :tamam
-  end
+
+
+
+  resources :user_session
 
   namespace :mostkhdmeen do
     resources :users

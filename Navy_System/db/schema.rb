@@ -11,14 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130427134411) do
-
-  create_table "agazas", :force => true do |t|
-    t.string   "type"
-    t.string   "notes"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
+ActiveRecord::Schema.define(:version => 20130429072451) do
 
   create_table "groups", :force => true do |t|
     t.string   "name"

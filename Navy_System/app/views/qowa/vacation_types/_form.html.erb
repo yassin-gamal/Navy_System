@@ -1,0 +1,26 @@
+<%= form_for([:qowa, @qowa_vacation_type], :html=>{:style=>"margin-right:400px;margin-top:50px; width:400px;", :class=>"well" }) do |f| %>
+  <% if @qowa_vacation_type.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@qowa_vacation_type.errors.count, "error") %> prohibited this group from being saved:</h2>
+
+      <ul>
+      <% @qowa_vacation_type.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label "نوع الأجازة" %>
+    <%= f.text_field :name %>
+  </div>
+  
+ 
+  
+  <div class="modal-footer">
+  	<center>
+    <%= f.submit @edit_flag?"حفظ":"تسجيل اﻷجازة" , :class=>"btn-large btn-primary"  %>
+    </center>
+  </div>
+<% end %>

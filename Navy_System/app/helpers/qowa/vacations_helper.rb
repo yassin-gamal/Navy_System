@@ -1,0 +1,2 @@
+module Qowa::VacationsHelper
+end

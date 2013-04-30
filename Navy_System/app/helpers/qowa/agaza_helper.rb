@@ -1,2 +1,0 @@
-module Qowa::AgazaHelper
-end

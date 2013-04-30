@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>From date:</b>
+  <%= @qowa_vacation.from_date %>
+</p>
+
+<p>
+  <b>To date:</b>
+  <%= @qowa_vacation.to_date %>
+</p>
+
+<p>
+  <b>Note:</b>
+  <%= @qowa_vacation.note %>
+</p>
+
+<p>
+  <b>User:</b>
+  <%= @qowa_vacation.user_id %>
+</p>
+
+<p>
+  <b>Vacation type:</b>
+  <%= @qowa_vacation.vacation_type_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_qowa_vacation_path(@qowa_vacation) %> |
+<%= link_to 'Back', qowa_vacations_path %>

@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  from_date: 2013-04-29
+  to_date: 2013-04-29
+  note: MyString
+  user_id: 1
+  vacation_type_id: 1
+
+two:
+  from_date: 2013-04-29
+  to_date: 2013-04-29
+  note: MyString
+  user_id: 1
+  vacation_type_id: 1

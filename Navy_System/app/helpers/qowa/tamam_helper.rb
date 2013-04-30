@@ -1,2 +1,0 @@
-module Qowa::TamamHelper
-end

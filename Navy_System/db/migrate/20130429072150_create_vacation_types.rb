@@ -1,4 +1,4 @@
-class CreateVacationTypes < ActiveRecord::Migration
+class CreateQowaVacationTypes < ActiveRecord::Migration
   def change
     create_table :vacation_types do |t|
       t.string :name

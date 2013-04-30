@@ -1,0 +1,75 @@
+<%= form_for([:qowa, @qowa_vacation], :html=>{:style=>"margin-right:400px;margin-top:50px; width:400px;", :class=>"well" }) do |f| %>
+
+<% if @qowa_vacation.errors.any? %>
+<div id="error_explanation">
+	<h2><%= pluralize(@qowa_vacation.errors.count, "error") %> prohibited this group from being saved:</h2>
+
+	<ul>
+		<% @qowa_vacation.errors.full_messages.each do |msg| %>
+		<li>
+			<%= msg %>
+		</li>
+		<% end %>
+	</ul>
+</div>
+<% end %>
+
+<div class="field">
+	<%= f.label "المجموعة" %>
+	<%if @create_flag == true%>
+	<%= select_tag :group, options_from_collection_for_select(@groups, "id", "name"), :prompt => '-- اختر مجموعة --',:style=>"width:250px;" ,:tabindex=>"2","data-remote" => true, "data-url" => "/get_users", "data-type" => :json %>
+	<%else%>
+		<%= f.label "#{@qowa_vacation.user.group.name}" %>
+	<%end%>
+</div>
+
+<div class="field">
+	<%= f.label "اسم الفرد" %>
+	<%if @create_flag == true%>
+	<%= f.select :user_id, options_from_collection_for_select(@users, "id", "name"), :prompt => '-- اختر مستخدم --',:style=>"width:250px;" ,:tabindex=>"2" %>
+	<%else%>
+		<%= f.label "#{@qowa_vacation.user.name}" %>
+	<%end%>
+</div>
+
+<div class="field">
+	<%= f.label "نوع اﻷجازة" %>
+	<%= f.select :vacation_type_id, options_from_collection_for_select(@vacation_types, "id", "name"), :prompt => '-- اختر نوع الأجازة --',:style=>"width:250px;" ,:tabindex=>"2" %>
+</div>
+
+
+<div class="field">
+	<%= f.label "ملاحظات" %>
+	<%= f.text_field :note %>
+</div>
+
+<div class="well">
+<div class="field" >
+	<div dir="ltr" id="datetimepicker1" class="input-append date">
+		<span style="float:right; margin-left: 25px; margin-top: 5px;" class="label label-info">مـن يـــــــوم</span>
+		<%= f.text_field :from_date %>
+		<span class="add-on"> <i data-time-icon="icon-time" data-date-icon="icon-calendar"> </i> </span>
+	</div>
+</div>
+
+
+<div class="field" >
+	<div dir="ltr" id="datetimepicker2" class="input-append date">
+		<span style="float:right; margin-left: 25px; margin-top: 5px;" class="label label-info">إلـى يـــــــوم</span>
+		<%= f.text_field :to_date %>
+		<span class="add-on"> <i data-time-icon="icon-time" data-date-icon="icon-calendar"> </i> </span>
+	</div>
+</div>
+</div>
+
+<div class="modal-footer">
+	<center>
+		<%= f.submit @create_flag?"تسجيل اﻷجازة":"حفظ" , :class=>"btn-large btn-primary"  %>
+	</center>
+</div>
+</div>
+
+
+
+<%end%>
+
