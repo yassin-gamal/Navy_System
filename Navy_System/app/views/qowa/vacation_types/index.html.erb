@@ -1,74 +1,98 @@
-<ul class="nav nav-tabs" id="Menus" style = "margin-right:20px ;font: bold 1.20em Tahoma; sans-serif;">
-	<li class="active">
-		<a href="#" data-toggle="tooltip" data-placement="bottom" title="تطبيق القوة وتمام الأفراد" >القـــوة</a>
-	</li>
-	<li><a href="#" data-toggle="tooltip" data-placement="bottom" title="تطبيق تأمين الدخول علي منظومة ق.ق.ب و مراقبة سير العمل للمستخدمين">المستخدمين</a></li>
-	<li><a href="#" data-toggle="tooltip" data-placement="bottom" title="قاعدة إدخال البيانات">إدخال البيانات</a></li>
-	<li><a href="#" data-toggle="tooltip" data-placement="bottom" title=" تطبيق بنك المعلومات">بنك المعلومات</a></li>
-	<li><a href="#" data-toggle="tooltip" data-placement="bottom" title="تطبيق أجازات القادة">اجازات القادة</a></li>
-	<li><a href="#" data-toggle="tooltip" data-placement="bottom" title="تطبيق الحافظة الآلية و متابعة التأشيرات و الإلتزمات الرئيسية للسيد قائد القوات البحرية/السيد رئيس الأركان">الحافظة</a></li>
-	<li><a href="#" data-toggle="tooltip" data-placement="bottom" title="تطبيق المكافآت و الحوافز">المكافآت و الحوافز</a></li>
-	<li><a href="#" data-toggle="tooltip" data-placement="bottom" title="تطبيق متابعة عضويات دور القوات البحرية" >عضويات</a></li>
-	<li><a href="#" data-toggle="tooltip" data-placement="bottom" title="تطبيق الأرشيف الإلكتروني لقيادة القوات البحرية" >الأرشيف</a></li>
-	<li><a href="#" data-toggle="tooltip" data-placement="bottom" title="تطبيق التصوير بالكمبيوتر" >التصوير</a></li>
-	<li><a href="#" data-toggle="tooltip" data-placement="bottom" title="تطبيق المتابعة الآلية لوحدات القوات البحرية" >المتابعة</a></li>
-	<li><a href="#" data-toggle="tooltip" data-placement="bottom" title="تطبيقات دعم و إتخاذ القرار الإداري" >دعم وإتخاذ القرار</a></li>
-	<li><a href="#" data-toggle="tooltip" data-placement="bottom" title="شاشات سير العمل اليومي" >سير العمل</a></li>
-</ul>
-
-	<div class="well" style="margin:20px">
-		<div style="float:right; margin-top: -10px;">
-			<h4>تسجيل أنواع الأجازات</h4>
-		</div>
-
+<div class="well" style="margin:20px">
+	<div style="float:right; margin-top: -10px;">
+		<h4>تسجيل أنواع الأجازات</h4>
 	</div>
 
-		<button class="btn btn-info" style="margin-right:50px"><i class=" icon-add  icon-white"></i><%= link_to 'تسجيل نوع جديد', new_qowa_vacation_type_path %></button></center></td>
-
-	
-	<table  style="margin:20px; width:97%;" class="table table-bordered">
- 		<tr >
- 			<th width="30%" ><h4><center>الكود</center></h4></th>
- 			<th  width="40%" ><h4><center>نوع الأجازة</center></h4></th>
- 			<th width="30%" colspan="2"></th>
- 			
- 		</tr>
- 		
- 		<% @qowa_vacation_types.each do |agaza|%>
- 			<tr >
- 			<td><h5><center><%=agaza.id%></center></h5></td>
- 			<td><h5><center><%=agaza.name%></center></h5></td>
- 			<td><h5><center><button class="btn btn-info"><i class=" icon-pencil  icon-white"></i><%= link_to 'تعديــل', edit_qowa_vacation_type_path(agaza) %></button></center></h5></td>
-			<td><h5><center><button class="btn btn-danger"><i class=" icon-trash  icon-white"></i><%= link_to 'حذف', qowa_vacation_type_path(agaza), method: :delete, data: { confirm: 'حــذف ؟' } %></button></center></h5></td>
- 		</tr>
- 		<%end%>
-		
-
-
- 	</table>
+	<button class="btn btn-info" style="margin-right:50px">
+		<i class=" icon-add  icon-white"></i><%= link_to 'تسجيل نوع جديد', new_qowa_vacation_type_path %>
+	</button></center></td>
 
 </div>
 
+<div style="float:right;">
+	<ul  style="font: normal 15px Tahoma; margin-top: 30px; margin-right: 25px;" id="sideMenus" class="nav nav-list bs-docs-sidenav affix" >
+		<li class="active">
+			<a href=<%= qowa_vacation_types_path%> >تسجيل أنواع الأجازات<i class="icon-chevron-left"></i></a>
+		</li>
 
+		<li>
+			<a href="<%= new_qowa_vacation_path%>">تسجيل أجازات اﻷفراد<i class="icon-chevron-left"></i></a>
+		</li>
+
+		<li>
+			<a href=<%= qowa_vacations_path%>>بيان بالخوارج<i class="icon-chevron-left"></i></a>
+		</li>
+
+		<li>
+			<a href="#">بيان أجازات اﻷفراد<i class="icon-chevron-left"></i></a>
+		</li>
+
+		<li>
+			<a href="/qowa/users">بيانات طاقم فرع السكرتارية<i class="icon-chevron-left"></i></a>
+		</li>
+	</ul>
+</div>
+
+<table  style="margin-top:30px; margin-left:80px; width:70%; float: left " class="table table-bordered">
+	<tr >
+		<th width="30%" ><h4>
+		<center>
+			الكود
+		</center></h4></th>
+		<th  width="40%" ><h4>
+		<center>
+			نوع الأجازة
+		</center></h4></th>
+		<th width="30%" colspan="2"></th>
+
+	</tr>
+
+	<% @qowa_vacation_types.each do |agaza|%>
+	<tr >
+		<td><h5>
+		<center>
+			<%= agaza.id%>
+		</center></h5></td>
+		<td><h5>
+		<center>
+			<%= agaza.name%>
+		</center></h5></td>
+		<td><h5>
+		<center>
+			<button class="btn btn-info">
+				<i class=" icon-pencil  icon-white"></i><%= link_to 'تعديــل', edit_qowa_vacation_type_path(agaza) %>
+			</button>
+		</center></h5></td>
+		<td><h5>
+		<center>
+			<button class="btn btn-danger">
+				<i class=" icon-trash  icon-white"></i><%= link_to 'حذف', qowa_vacation_type_path(agaza), method: :delete, data: { confirm: 'حــذف ؟' } %>
+			</button>
+		</center></h5></td>
+	</tr>
+	<%end%>
+
+</table>
+
+</div>
 
 <script>
-$(document).ready(function() {
+	$(document).ready(function() {
 
+		$("#Menus > li > a").tooltip();
 
-    $("#Menus > li > a").tooltip();
+		$('li').click(function() {
+			//select tthe active element in the current list by $("#idOfTheList > .active")
+			$("#" + this.parentElement.getAttribute("id") + " > .active").removeClass("active")
+			this.setAttribute("class", "active")
+		});
 
-	$('li').click(function(){
-	//select tthe active element in the current list by $("#idOfTheList > .active")
-	$("#"+this.parentElement.getAttribute("id")+" > .active").removeClass("active")
-	this.setAttribute("class","active")
+		$('#Menus').tab('show');
+
+		$('.carousel').carousel({
+			interval : 4000
+		});
+
 	});
-
-	$('#Menus').tab('show');
-
-	$('.carousel').carousel({interval: 4000});
-
-
-});
-
 
 </script>

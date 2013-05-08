@@ -1,38 +1,27 @@
-<div class="well" style="margin:20px">
-	<div style="float:right; margin-top: -10px;">
-		<h4>بيان بالمستخدمين</h4>
-	</div>
-	
-</div>
-
-
 <div style="float:right;">
 	<ul  style="font: normal 15px Tahoma; margin-top: 30px; margin-right: 25px;" id="sideMenus" class="nav nav-list bs-docs-sidenav affix" >
 		<li >
-			<a href=<%=new_mostkhdmeen_group_path%> >تسجيل مجموعات المستخدمين<i class="icon-chevron-left"></i></a>
-		</li>
-		
-		<li >
-			<a href=<%=mostkhdmeen_groups_path%>>بيان بالمجموعات<i class="icon-chevron-left"></i></a>
+			<a href=<%=qowa_vacation_types_path%> >تسجيل أنواع الأجازات<i class="icon-chevron-left"></i></a>
 		</li>
 		
 		<li>
-			<a href="#">خصائص مجموعات المستخدمين<i class="icon-chevron-left"></i></a>
+			<a href="<%=new_qowa_vacation_path%>">تسجيل أجازات اﻷفراد<i class="icon-chevron-left"></i></a>
 		</li>
 		
 		<li>
-			<a href=<%=new_mostkhdmeen_user_path%>>تسجيل المستخدمين<i class="icon-chevron-left"></i></a>
+			<a href=<%=qowa_vacations_path%>>بيان بالخوارج<i class="icon-chevron-left"></i></a>
+		</li>
+		
+		<li>
+			<a href="#">بيان أجازات اﻷفراد<i class="icon-chevron-left"></i></a>
 		</li>
 		
 		<li class="active">
-			<a href=<%=mostkhdmeen_users_path%>>بيان بالمستخدمين<i class="icon-chevron-left"></i></a>
-		</li>
-		
-		<li>
-			<a href="#">خصائص المستخدمين<i class="icon-chevron-left"></i></a>
+			<a href="/qowa/users" >بيانات طاقم فرع السكرتارية<i class="icon-chevron-left"></i></a>
 		</li>
 	</ul>
 </div>
+
 
 <table style="width: 60%; height: 60%; float:left; margin-top: 30px;
 margin-left: 130px;" class="table table-bordered">
@@ -49,9 +38,9 @@ margin-left: 130px;" class="table table-bordered">
 
 	<% @mostkhdmeen_users.each do |user| %>
 	<tr>
-		<td><center><%= "#{user.name}" %></center></td>
+		<td><center><%= user.name %></center></td>
 		<td><center><%= "#{user.military_number}" %></center></td>
-		<td><center><%= "#{user.group.name}" %></td>
+		<td><center><%= "#{Group.find_by_id(user.group_id).name}" %></td>
 		<td><center><%= "#{user.tag_date}" %></center></td>
 		<td><center><%= "#{user.start_date}" %></center></td>
 		<td><center><%= "#{user.tas_date}" %></center></td>
@@ -63,7 +52,3 @@ margin-left: 130px;" class="table table-bordered">
 	</tr>
 	<% end %>
 </table>
-
-
-
-</div>

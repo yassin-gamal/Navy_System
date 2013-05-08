@@ -1,13 +1,20 @@
 NavySystem::Application.routes.draw do
+# get "user_session/get_users"
+  match 'login' => 'user_session#login', :as => :login
+  match 'logout' => 'user_session#logout', :as => :logout
+  match 'get_users' => 'user_session#get_users', :as => :get_users
 
-  get "qowa/tamam/create"
-  get "qowa/tamam/edit"
-  get "qowa/tamam/report"
+
+  
+
   
   namespace :qowa do
     resources :vacations
     resources :vacation_types
   end
+  
+  match 'qowa/vacations/getUserVacations' => 'qowa/vacations#getUserVacations', :as => :getUserVacations
+  match 'qowa/users' => 'qowa/vacations#users', :as => :users
 
 
 
@@ -19,10 +26,7 @@ NavySystem::Application.routes.draw do
     resources :groups
   end
 
-  # get "user_session/get_users"
-  match 'login' => 'user_session#login', :as => :login
-  match 'logout' => 'user_session#logout', :as => :logout
-  match 'get_users' => 'user_session#get_users', :as => :get_users
+  
 
   root :to =>'user_session#login'
 

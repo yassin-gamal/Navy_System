@@ -1,9 +1,8 @@
 # app/controllers/user_sessions_controller.rb
 class UserSessionController < ApplicationController
 	 respond_to :html, :json
-
-	skip_before_filter :require_login, :only => [:login, :get_users]
-
+	 skip_before_filter :require_login, :only => [:login, :get_users]
+   layout "landing"
 	def login
 		if request.get?
 			if session[:current_user]

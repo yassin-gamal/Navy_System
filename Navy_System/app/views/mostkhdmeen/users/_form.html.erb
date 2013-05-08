@@ -47,14 +47,14 @@
 	
   <div class="field">
     <%= f.label "المجموعة" %>
-	<%= f.select :group_id, options_from_collection_for_select(@groups, "id", "name"), :class=>"user_form_field", :prompt => '-- اختر مجموعة --',  %> 
+	<%= f.select :group_id, options_from_collection_for_select(@groups, "id", "name",@mostkhdmeen_user.group_id), :class=>"user_form_field", :prompt => '-- اختر مجموعة --', %> 
   </div>
   
 	 
   
   <div class="modal-footer" >
   <center>
-    <%= f.submit "تسجيل المستخدم",:class=>"btn-large btn-primary" %>
+  	<%= f.submit @edit_flag?"حفظ":"تسجيل المستخدم" , :class=>"btn-large btn-primary"  %>
   </center>
   </div>
 <% end %>

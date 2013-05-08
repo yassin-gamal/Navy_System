@@ -34,6 +34,7 @@ class Mostkhdmeen::GroupsController < ApplicationController
 
   # GET /groups/1/edit
   def edit
+    @edit_flag = true
     @group = Group.find(params[:id])
   end
 

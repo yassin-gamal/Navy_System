@@ -1,3 +1,37 @@
-<h1>تعديل المجموعة</h1>
+
+<div class="well" style="margin:20px">
+	<div style="float:right; margin-top: -10px;">
+		<h4>تعديل مجموعات المستخدمين</h4تسجيل></h4>
+	</div>
+	
+</div>
+
+<div style="float:right;">
+	<ul  style="font: normal 15px Tahoma; margin-top: 30px; margin-right: 25px;" id="sideMenus" class="nav nav-list bs-docs-sidenav affix" >
+		<li >
+			<a href=<%=new_mostkhdmeen_group_path%> >تسجيل مجموعات المستخدمين<i class="icon-chevron-left"></i></a>
+		</li>
+		
+		<li class="active">
+			<a href=<%=mostkhdmeen_groups_path%>>بيان بالمجموعات<i class="icon-chevron-left"></i></a>
+		</li>
+		
+		<li>
+			<a href="#">خصائص مجموعات المستخدمين<i class="icon-chevron-left"></i></a>
+		</li>
+		
+		<li>
+			<a href=<%=new_mostkhdmeen_user_path%>>تسجيل المستخدمين<i class="icon-chevron-left"></i></a>
+		</li>
+		
+		<li>
+			<a href=<%=mostkhdmeen_users_path%>>بيان بالمستخدمين<i class="icon-chevron-left"></i></a>
+		</li>
+		
+		<li>
+			<a href="#">خصائص المستخدمين<i class="icon-chevron-left"></i></a>
+		</li>
+	</ul>
+</div>
 
 <%= render 'form' %>

@@ -2,12 +2,15 @@ class Qowa::VacationsController < ApplicationController
   # GET /qowa/vacations
   # GET /qowa/vacations.json
   def index
-    @qowa_vacations = Vacation.all
-    
-    
+    if(params[:to_date])
+      @qowa_vacations = Vacation.where("to_date >= ?", params[:to_date])
+    else
+      date = Date.today
+      @qowa_vacations = Vacation.where("to_date >= ?", date)
+    end
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render json: @qowa_vacatio }
+      format.json { render json: @qowa_vacations }
     end
   end
 
@@ -31,7 +34,6 @@ class Qowa::VacationsController < ApplicationController
     @users = []
     @vacation_types = VacationType.all
 
-
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @qowa_vacation }
@@ -49,10 +51,15 @@ class Qowa::VacationsController < ApplicationController
   # POST /qowa/vacations
   # POST /qowa/vacations.json
   def create
+    p "========================================================"
+    p params[:vacation]
+    p "========================================================"
     @qowa_vacation = Vacation.new(params[:vacation])
 
     respond_to do |format|
       if @qowa_vacation.save
+        p @qowa_vacation.to_date
+
         format.html { redirect_to qowa_vacations_path, notice: 'Vacation was successfully created.' }
         format.json { render json: @qowa_vacation, status: :created, location: @qowa_vacation }
       else
@@ -89,4 +96,26 @@ class Qowa::VacationsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  def getKhwareg
+    dd    respond_to do |format|
+      format.html
+      format.json { render json: @qowa_vacations }
+    end
+  end
+
+  def getUserVacations
+    @qowa_vacations = Vacation.where("user_id = ? AND from_date = ? AND to_date = ?", params[:user_id], params[:from_date], params[:to_date])
+    respond_to do |format|
+      format.html
+      format.json { render json: @qowa_vacations }
+    end
+  end
+  
+  
+   def users
+    @mostkhdmeen_users = User.all
+    
+  end
+
 end

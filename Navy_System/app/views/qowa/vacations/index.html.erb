@@ -1,0 +1,124 @@
+<div class="well" style="margin:20px">
+	<div style="float:right; margin-top: -10px;">
+		<h4>بيان بالخوارج عن اليوم</h4>
+	</div>
+	
+	<button class="btn btn-info" style="margin-right:50px">
+	<i class=" icon-add  icon-white"></i><%= link_to 'تسجيل أجازة', new_qowa_vacation_path %>
+</button></center></td>
+
+</div>
+
+
+
+<div style="float:right;">
+	<ul  style="font: normal 15px Tahoma; margin-top: 30px; margin-right: 25px;" id="sideMenus" class="nav nav-list bs-docs-sidenav affix" >
+		<li >
+			<a href=<%= new_qowa_vacation_type_path%> >تسجيل أنواع الأجازات<i class="icon-chevron-left"></i></a>
+		</li>
+
+		<li >
+			<a href="<%= new_qowa_vacation_path%>">تسجيل أجازات اﻷفراد<i class="icon-chevron-left"></i></a>
+		</li>
+
+		<li class="active">
+			<a href=<%= qowa_vacations_path%>>بيان بالخوارج<i class="icon-chevron-left"></i></a>
+		</li>
+
+		<li>
+			<a href="#">بيان أجازات اﻷفراد<i class="icon-chevron-left"></i></a>
+		</li>
+
+		<li>
+			<a href="/qowa/users">بيانات طاقم فرع السكرتارية<i class="icon-chevron-left"></i></a>
+		</li>
+	</ul>
+</div>
+
+<table  style="margin-left:80px; margin-top: 30px; width:70%; float: left;" class="table table-bordered">
+	<tr >
+		<th width="20%" ><h4>
+		<center>
+			الاسم
+		</center></h4></th>
+		<th  width="20%" ><h4>
+		<center>
+			نوع الأجازة
+		</center></h4></th>
+		<th  width="10%" ><h4>
+		<center>
+			من يوم
+		</center></h4></th>
+		<th  width="10%" ><h4>
+		<center>
+			إلى يوم
+		</center></h4></th>
+		<th  width="20%" ><h4>
+		<center>
+			ملاحظات
+		</center></h4></th>
+
+		<th width="20%" colspan="2"></th>
+
+	</tr>
+
+	<% @qowa_vacations.each do |vacation|%>
+	<tr >
+		<td><h5>
+		<center>
+			<%= vacation.user.name%>
+		</center></h5></td>
+		<td><h5>
+		<center>
+			<%= vacation.vacation_type.name%>
+		</center></h5></td>
+		<td><h5>
+		<center>
+			<%= vacation.from_date%>
+		</center></h5></td>
+		<td><h5>
+		<center>
+			<%= vacation.to_date%>
+		</center></h5></td>
+		<td><h5>
+		<center>
+			<%= vacation.note%>
+		</center></h5></td>
+
+		<td><h5>
+		<center>
+			<button class="btn btn-info">
+				<i class=" icon-pencil  icon-white"></i><%= link_to 'تعديــل', edit_qowa_vacation_path(vacation) %>
+			</button>
+		</center></h5></td>
+		<td><h5>
+		<center>
+			<button class="btn btn-danger">
+				<i class=" icon-trash  icon-white"></i><%= link_to 'حذف', qowa_vacation_path(vacation), method: :delete, data: { confirm: 'حــذف ؟' } %>
+			</button>
+		</center></h5></td>
+	</tr>
+	<%end%>
+
+</table>
+
+</div>
+
+<script>
+	$(document).ready(function() {
+
+$("#Menus > li > a").tooltip();
+
+$('li').click(function(){
+//select tthe active element in the current list by $("#idOfTheList > .active")
+$("#"+this.parentElement.getAttribute("id")+" > .active").removeClass("active")
+this.setAttribute("class","active")
+});
+
+$('#Menus').tab('show');
+
+$('.carousel').carousel({interval: 4000});
+
+});
+
+</script>

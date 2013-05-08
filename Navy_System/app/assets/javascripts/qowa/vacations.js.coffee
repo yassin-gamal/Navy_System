@@ -15,3 +15,6 @@ $(document).ready ->
       select.empty()
       select.attr "disabled", "disabled"
 
+
+
+    

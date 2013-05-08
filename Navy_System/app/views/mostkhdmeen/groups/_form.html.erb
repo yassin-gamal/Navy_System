@@ -28,7 +28,7 @@
   
   <div class="modal-footer">
   	<center>
-    <%= f.submit "تسجيل المجموعة", :class=>"btn-large btn-primary"  %>
+  	<%= f.submit @edit_flag?"حفظ":"تسجيل المجموعة" , :class=>"btn-large btn-primary"  %>	
     </center>
   </div>
 <% end %>

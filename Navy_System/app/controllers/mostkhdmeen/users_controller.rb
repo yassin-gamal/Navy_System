@@ -4,6 +4,7 @@ class Mostkhdmeen::UsersController < ApplicationController
   def index
     @mostkhdmeen_users = User.all
 
+
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @mostkhdmeen_users }
@@ -25,7 +26,7 @@ class Mostkhdmeen::UsersController < ApplicationController
   # GET /mostkhdmeen/users/new.json
   def new
     
-    @mostkhdmeen_user = User.new
+    @mostkhdmeen_user = User.new 
     @groups = Group.all
     
     respond_to do |format|
@@ -38,6 +39,7 @@ class Mostkhdmeen::UsersController < ApplicationController
   def edit
     @groups = Group.all
     @mostkhdmeen_user = User.find(params[:id])
+    @edit_flag = true
   end
 
   # POST /mostkhdmeen/users
@@ -83,4 +85,8 @@ class Mostkhdmeen::UsersController < ApplicationController
       format.json { head :no_content }
     end
   end
+  
+  
+ 
+  
 end
