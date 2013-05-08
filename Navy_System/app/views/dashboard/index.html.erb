@@ -74,25 +74,4 @@
 <a class="carousel-control right" href="#myCarousel" data-slide="prev">&lsaquo;</a>
 
 
-<script>
-$(document).ready(function() {
-
-	$("#Menus > li > a").tooltip();
-
-	$('li').click(function(){
-//select tthe active element in the current list by $("#idOfTheList > .active")
-$("#"+this.parentElement.getAttribute("id")+" > .active").removeClass("active")
-this.setAttribute("class","active")
-});
-
-	$(function () {
-		$('#Menus').tab('show');
-	})
-	$('.carousel').carousel({interval: 4000});
-
-
-});
-
-
-</script>
 
