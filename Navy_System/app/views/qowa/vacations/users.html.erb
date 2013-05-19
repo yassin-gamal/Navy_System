@@ -55,6 +55,7 @@ margin-left: 130px;" class="table table-bordered">
 		
 		<td><center><button class="btn btn-success"><%= link_to 'تعديل', edit_mostkhdmeen_user_path(user) %></button></center></td>
 		<td><center><button class="btn btn-danger"><%= link_to 'حذف', mostkhdmeen_user_path(user), method: :delete, data: { confirm: 'حذف المستخدم ؟' } %></center></button></td>
+		<td><center><button class="btn btn-info"><%= link_to 'بيان أجازات', "/qowa/vacations/user_vacations?user_id=#{user.id}" %></center></button></td>
 
 	</tr>
 	<% end %>

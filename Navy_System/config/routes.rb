@@ -8,14 +8,17 @@ NavySystem::Application.routes.draw do
   
 
   
+  
+  match 'qowa/vacations/getUserVacations' => 'qowa/vacations#getUserVacations', :as => :getUserVacations
+  match 'qowa/vacations/user_vacations' => 'qowa/vacations#user_vacations', :as => :user_vacations  
+  match 'qowa/vacations/user_vacations_brief' => 'qowa/vacations#user_vacations_brief', :as => :user_vacations_brief
+  match 'qowa/users' => 'qowa/vacations#users', :as => :users
+
   namespace :qowa do
     resources :vacations
     resources :vacation_types
   end
   
-  match 'qowa/vacations/getUserVacations' => 'qowa/vacations#getUserVacations', :as => :getUserVacations
-  match 'qowa/users' => 'qowa/vacations#users', :as => :users
-
 
 
 

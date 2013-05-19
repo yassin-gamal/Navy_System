@@ -21,10 +21,10 @@
 
 		<div id="main" role="main" style = "margin-right:20px;font: normal .80em Tahoma, sans-serif;" >
 			<ul class="nav nav-tabs" id="Menus" style = "margin-right:20px ;font: bold 1.20em Tahoma; sans-serif;">
-				<li  class="active">
+				<li  id="qowa_tab" class="">
 					<a href="<%= qowa_vacations_path%>" data-toggle="tooltip" data-placement="bottom" title="تطبيق القوة وتمام الأفراد" >القـــوة</a>
 				</li>
-				<li>
+				<li id="mostkhdmeen_tab" class="">
 					<a href="<%= mostkhdmeen_users_path%>" data-toggle="tooltip" data-placement="bottom" title="تطبيق تأمين الدخول علي منظومة ق.ق.ب و مراقبة سير العمل للمستخدمين">المستخدمين</a>
 				</li>
 				<li>
@@ -68,27 +68,24 @@
 				<script>
 					$(document).ready(function() {
 
-					$("#Menus > li > a").tooltip();
-					
-					$('li').click(function() {
-					//select tthe active element in the current list by $("#idOfTheList > .active")
-					debugger;
-					$("#" + this.parentElement.getAttribute("id") + " > .active").removeClass("active");
-					this.setAttribute("class", "active");
-					});
-					
-					
-					
-					
-					$('#Menus').tab('show');
-					
-					$('.carousel').carousel({
-					interval : 4000
-					});
+						$("#Menus > li > a").tooltip();
+						var tab = document.URL.split("/")[3];
+						
+						
+						
+						
+						// alert(tab);
+						// debugger;
+						
+						$('#Menus').tab('show');
+						
+						$('.carousel').carousel({
+							interval : 4000
+						});
+						$("#"+tab+"_tab")[0].setAttribute("class", "active");
 					});
 
 				</script>
 				<footer class="navber-inner"></footer>
 	</body>
-</html>
 

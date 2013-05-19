@@ -38,23 +38,17 @@
 	<%= f.text_field :note, :class=>"user_form_field" %>
   </div>
 	
-	
-	
-
-  
-  
-  
-	
   <div class="field">
     <%= f.label "المجموعة" %>
 	<%= f.select :group_id, options_from_collection_for_select(@groups, "id", "name",@mostkhdmeen_user.group_id), :class=>"user_form_field", :prompt => '-- اختر مجموعة --', %> 
   </div>
   
-	 
+  
   
   <div class="modal-footer" >
   <center>
   	<%= f.submit @edit_flag?"حفظ":"تسجيل المستخدم" , :class=>"btn-large btn-primary"  %>
   </center>
   </div>
+ 
 <% end %>

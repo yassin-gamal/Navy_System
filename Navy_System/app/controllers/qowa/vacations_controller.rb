@@ -13,6 +13,44 @@ class Qowa::VacationsController < ApplicationController
       format.json { render json: @qowa_vacations }
     end
   end
+  
+  def user_vacations
+      @qowa_vacations = Vacation.where("user_id = ?", params[:user_id])
+  end
+  
+  
+  def user_vacations_brief
+    @brief = []
+    users = User.all
+    types = VacationType.all
+    
+    
+    i = 0
+    users.each do |user|
+      j = 0
+      @brief[i] = []
+      @brief[i][j] = user.id
+      j = j + 1
+      @brief[i][j] = user.name
+      j = j + 1
+        
+      types.each do |type|
+        
+        @brief[i][j] = type.name
+        j = j + 1
+                   
+        vacations = Vacation.where("user_id=? AND vacation_type_id = ?", user.id, type.id)
+        numDays = 0
+        vacations.each do |vac|
+          numDays = vac.duration + numDays
+        end 
+        
+        @brief[i][j] = numDays
+        j = j + 1
+      end 
+    end
+    i = i + 1
+  end
 
   # GET /qowa/vacations/1
   # GET /qowa/vacations/1.json
@@ -54,6 +92,10 @@ class Qowa::VacationsController < ApplicationController
     p "========================================================"
     p params[:vacation]
     p "========================================================"
+    
+    to = Date.parse(params[:vacation][:to_date])
+    from = Date.parse(params[:vacation][:from_date])
+    params[:vacation][:duration] = (to- from).to_i
     @qowa_vacation = Vacation.new(params[:vacation])
 
     respond_to do |format|
@@ -73,7 +115,9 @@ class Qowa::VacationsController < ApplicationController
   # PUT /qowa/vacations/1.json
   def update
     @qowa_vacation = Vacation.find(params[:id])
-
+    to = Date.parse(params[:vacation][:to_date])
+    from = Date.parse(params[:vacation][:from_date])
+    params[:vacation][:duration] = (to- from).to_i
     respond_to do |format|
       if @qowa_vacation.update_attributes(params[:vacation])
         format.html { redirect_to qowa_vacations_path, notice: 'Vacation was successfully updated.' }

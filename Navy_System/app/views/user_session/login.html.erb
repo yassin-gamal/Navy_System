@@ -65,15 +65,13 @@ $(document).ready(function() {
 		language: 'ar-EG'
 	});
 
-
-
 	$("#Menus > li > a").tooltip();
 
 	$('li').click(function(){
-	//select tthe active element in the current list by $("#idOfTheList > .active")
-	$("#"+this.parentElement.getAttribute("id")+" > .active").removeClass("active");
-	this.setAttribute("class","active");
-});
+		//select tthe active element in the current list by $("#idOfTheList > .active")
+		$("#"+this.parentElement.getAttribute("id")+" > .active").removeClass("active");
+		this.setAttribute("class","active");
+	});
 
 	$(function () {
 		$('#Menus').tab('show');
